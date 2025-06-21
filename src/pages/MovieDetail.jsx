@@ -7,6 +7,7 @@ import { useTitle } from "../hooks/useTitle"
 export const MovieDetail = () => {
   const params = useParams();
   const[movie, setMovie] = useState({});
+  // eslint-disable-next-line
   const pageTitle = useTitle(movie.title);  
 
    const image = movie.poster_path ? `https://image.tmdb.org/t/p/w500/${movie.poster_path}` : Backup ;
@@ -18,7 +19,7 @@ export const MovieDetail = () => {
         setMovie(json)
        }
        fetchMovie();
-   },[]);
+   },[params.id]);
 
 
   return (
